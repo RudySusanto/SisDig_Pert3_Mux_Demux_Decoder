@@ -1,0 +1,29 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity dm8to1 is
+Port ( 
+    M: in std_logic;
+    S: in std_logic_vector (2 downto 0);
+    O: out std_logic_vector (7 downto 0) 
+);
+end dm8to1;
+
+architecture Behavioral of dm8to1 is
+begin
+    process(M,S)
+       begin
+       O <= "00000000"; 
+       case S is 
+            when "000" => O(0) <= M;
+            when "001" => O(1) <= M;
+            when "010" => O(2) <= M;
+            when "011" => O(3) <= M;
+            when "100" => O(4) <= M;
+            when "101" => O(5) <= M;
+            when "110" => O(6) <= M;
+            when "111" => O(7) <= M;
+            when others => O <= "00000000";
+       end case;
+    end process; 
+end Behavioral;

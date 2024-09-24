@@ -1,0 +1,23 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity Mx4to1 is
+Port ( 
+       M: in std_logic_vector (3 downto 0);
+       S: in std_logic_vector (1 downto 0);
+       O: out std_logic  
+);
+end Mx4to1;
+
+architecture Behavioral of Mx4to1 is
+begin
+   process (M,S)
+    begin 
+        case S is
+            when "00" => O <= M(0);
+            when "01" => O <= M(1);
+            when "10" => O <= M(2);
+            when "11" => O <= M(3); 
+        end case;
+   end process; 
+end Behavioral;
